@@ -28,7 +28,7 @@ WORKDIR /app
 # RUN apk add --no-cache dumb-init
 
 # AFTER:
-RUN apk update && apk add --no-cache dumb-init
+RUN apk update && apk add --no-cache dumb-init curl
 
 # Copy package files
 COPY package*.json ./
