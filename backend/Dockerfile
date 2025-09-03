@@ -17,6 +17,9 @@ RUN apt-get update && apt-get install -y \
 COPY requirements.txt .
 RUN pip install --no-cache-dir --user -r requirements.txt
 
+# Add this line after your `pip install` command
+RUN chmod +x /root/.local/bin/uvicorn
+
 # Production stage
 FROM python:3.11-slim
 
@@ -53,5 +56,4 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
 # Start application with gunicorn for production
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "1"]
 
-# Add this line after your `pip install` command
-RUN chmod +x /root/.local/bin/uvicorn
+
