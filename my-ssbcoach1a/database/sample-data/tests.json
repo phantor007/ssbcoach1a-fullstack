@@ -1,0 +1,220 @@
+[
+  {
+    "_id": {"$oid": "65a1b2c3d4e5f6789a0b2d2e"},
+    "title": "OIR Practice Test - Set 1",
+    "description": "Comprehensive Officer Intelligence Rating test with 50 questions covering verbal reasoning, non-verbal reasoning, numerical ability, and spatial intelligence.",
+    "type": "oir",
+    "category": "Intelligence Rating",
+    "difficulty": "medium",
+    "time_limit": 45,
+    "total_questions": 50,
+    "questions": [
+      {
+        "question_id": 1,
+        "section": "Verbal Reasoning",
+        "question_text": "Complete the series: Dog, Cat, Bird, ___",
+        "options": ["Fish", "Lion", "Elephant", "Mouse"],
+        "correct_answer": 0,
+        "explanation": "The series follows domestic animals pattern."
+      },
+      {
+        "question_id": 2,
+        "section": "Numerical Ability", 
+        "question_text": "What is 15% of 240?",
+        "options": ["36", "24", "32", "40"],
+        "correct_answer": 0,
+        "explanation": "15% of 240 = (15/100) × 240 = 36"
+      },
+      {
+        "question_id": 3,
+        "section": "Non-Verbal Reasoning",
+        "question_text": "Find the next figure in the pattern",
+        "options": ["Option A", "Option B", "Option C", "Option D"],
+        "correct_answer": 2,
+        "explanation": "Pattern follows clockwise rotation."
+      }
+    ],
+    "max_score": 100,
+    "passing_score": 60,
+    "is_premium": false,
+    "is_active": true,
+    "tags": ["basic", "intelligence", "reasoning"],
+    "created_by": "65a1b2c3d4e5f6789a0b1c2d",
+    "created_at": "2025-09-02T10:00:00.000Z",
+    "updated_at": "2025-09-02T16:00:00.000Z"
+  },
+  {
+    "_id": {"$oid": "65a1b2c3d4e5f6789a0b2d2f"},
+    "title": "OIR Practice Test - Set 2 (Advanced)",
+    "description": "Advanced OIR test with complex reasoning problems and analytical questions. Focuses on advanced verbal reasoning, mathematical problems, and logical sequences.",
+    "type": "oir",
+    "category": "Intelligence Rating",
+    "difficulty": "hard",
+    "time_limit": 45,
+    "total_questions": 50,
+    "questions": [
+      {
+        "question_id": 1,
+        "section": "Advanced Reasoning",
+        "question_text": "If all Bloops are Razzles and all Razzles are Lazzles, then all Bloops are definitely Lazzles?",
+        "options": ["True", "False", "Cannot be determined", "Insufficient data"],
+        "correct_answer": 0,
+        "explanation": "This follows logical syllogism rules."
+      }
+    ],
+    "max_score": 100,
+    "passing_score": 70,
+    "is_premium": true,
+    "is_active": true,
+    "tags": ["advanced", "premium", "reasoning"],
+    "created_by": "65a1b2c3d4e5f6789a0b1c2d",
+    "created_at": "2025-09-02T10:05:00.000Z",
+    "updated_at": "2025-09-02T16:05:00.000Z"
+  },
+  {
+    "_id": {"$oid": "65a1b2c3d4e5f6789a0b2d30"},
+    "title": "PPDT Practice Set - Leadership Themes",
+    "description": "Picture perception test with multiple scenarios covering adventure, rescue, achievement, and leadership themes. Includes story writing and group discussion phases.",
+    "type": "ppdt",
+    "category": "Picture Perception",
+    "difficulty": "medium",
+    "time_limit": 30,
+    "total_questions": 5,
+    "questions": [
+      {
+        "picture_id": 1,
+        "scene": "A group of people helping flood victims",
+        "themes": ["leadership", "service", "teamwork"],
+        "instruction": "Write a story about what you see in the picture. Focus on the main character and their actions.",
+        "time_limit": 4
+      },
+      {
+        "picture_id": 2,
+        "scene": "Mountain rescue operation in progress",
+        "themes": ["courage", "leadership", "emergency"],
+        "instruction": "Describe the situation and the role of the central character.",
+        "time_limit": 4
+      }
+    ],
+    "max_score": 100,
+    "passing_score": 65,
+    "is_premium": false,
+    "is_active": true,
+    "tags": ["perception", "leadership", "creativity"],
+    "created_by": "65a1b2c3d4e5f6789a0b1c2d",
+    "created_at": "2025-09-02T10:10:00.000Z",
+    "updated_at": "2025-09-02T16:10:00.000Z"
+  },
+  {
+    "_id": {"$oid": "65a1b2c3d4e5f6789a0b2d31"},
+    "title": "Psychology Test Battery - Complete Set",
+    "description": "Comprehensive psychological assessment including TAT, WAT, SRT, and self-description exercises. Evaluates personality traits and emotional intelligence.",
+    "type": "psychology",
+    "category": "Psychology Tests",
+    "difficulty": "medium",
+    "time_limit": 120,
+    "total_questions": 100,
+    "questions": [
+      {
+        "test_type": "TAT",
+        "instruction": "Look at the picture and write a story covering: What is happening? What led to this situation? What is being thought? What will be the outcome?",
+        "time_limit": 4,
+        "images": 12
+      },
+      {
+        "test_type": "WAT",
+        "instruction": "Write the first thought that comes to your mind when you see these words",
+        "words": ["COURAGE", "LEADER", "TEAM", "CHALLENGE", "SUCCESS"],
+        "time_limit": 15
+      },
+      {
+        "test_type": "SRT", 
+        "instruction": "Complete these sentences with the first thought that comes to mind",
+        "sentences": [
+          "When I am criticized, I...",
+          "My greatest strength is...", 
+          "In a team, I usually..."
+        ],
+        "time_limit": 30
+      }
+    ],
+    "max_score": 100,
+    "passing_score": 60,
+    "is_premium": true,
+    "is_active": true,
+    "tags": ["psychology", "personality", "premium"],
+    "created_by": "65a1b2c3d4e5f6789a0b1c2d",
+    "created_at": "2025-09-02T10:15:00.000Z",
+    "updated_at": "2025-09-02T16:15:00.000Z"
+  },
+  {
+    "_id": {"$oid": "65a1b2c3d4e5f6789a0b2d32"},
+    "title": "GTO Tasks Simulation - Group Activities",
+    "description": "Group Testing Officer tasks including GPE, PGT, GOR, and HGT. Helps understand team dynamics and leadership roles in group activities.",
+    "type": "gto",
+    "category": "Group Testing",
+    "difficulty": "medium",
+    "time_limit": 60,
+    "total_questions": 20,
+    "questions": [
+      {
+        "task_type": "GPE",
+        "scenario": "Plan a rescue operation for flood-affected area with limited resources",
+        "resources": ["2 boats", "10 volunteers", "medical supplies", "food packets"],
+        "constraints": ["Time: 6 hours", "Weather: Heavy rain expected", "Communication: Limited"],
+        "evaluation_criteria": ["Planning", "Resource utilization", "Time management", "Leadership"]
+      },
+      {
+        "task_type": "PGT",
+        "scenario": "Progressive group task with obstacles",
+        "description": "Cross a river using given materials without touching water",
+        "materials": ["Rope", "Wooden planks", "Barrel", "Pulleys"],
+        "rules": ["No physical contact with water", "All team members must cross", "Materials can be reused"]
+      }
+    ],
+    "max_score": 100,
+    "passing_score": 65,
+    "is_premium": true,
+    "is_active": true,
+    "tags": ["group", "leadership", "teamwork", "premium"],
+    "created_by": "65a1b2c3d4e5f6789a0b1c2d",
+    "created_at": "2025-09-02T10:20:00.000Z",
+    "updated_at": "2025-09-02T16:20:00.000Z"
+  },
+  {
+    "_id": {"$oid": "65a1b2c3d4e5f6789a0b2d33"},
+    "title": "Current Affairs Test - Defence Focus",
+    "description": "Current affairs test covering national and international events, defence news, government policies, and general awareness for defence aspirants.",
+    "type": "current_affairs",
+    "category": "Current Affairs",
+    "difficulty": "medium",
+    "time_limit": 30,
+    "total_questions": 40,
+    "questions": [
+      {
+        "question_id": 1,
+        "question_text": "Who is the current Chief of Defence Staff (CDS) of India?",
+        "options": ["General Anil Chauhan", "General Bipin Rawat", "General M.M. Naravane", "Admiral R. Hari Kumar"],
+        "correct_answer": 0,
+        "explanation": "General Anil Chauhan is the current CDS of India.",
+        "category": "Defence"
+      },
+      {
+        "question_id": 2,
+        "question_text": "Which exercise is conducted between Indian and US Armed Forces?",
+        "options": ["Malabar", "Yudh Abhyas", "Cope India", "All of the above"],
+        "correct_answer": 3,
+        "explanation": "India and US conduct multiple joint exercises including Malabar, Yudh Abhyas, and Cope India.",
+        "category": "International Relations"
+      }
+    ],
+    "max_score": 100,
+    "passing_score": 60,
+    "is_premium": false,
+    "is_active": true,
+    "tags": ["current_affairs", "defence", "general_knowledge"],
+    "created_by": "65a1b2c3d4e5f6789a0b1c2d",
+    "created_at": "2025-09-02T10:25:00.000Z",
+    "updated_at": "2025-09-02T16:25:00.000Z"
+  }
+]
