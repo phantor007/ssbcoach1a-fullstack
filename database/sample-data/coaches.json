@@ -1,0 +1,206 @@
+[
+  {
+    "_id": {"$oid": "65a1b2c3d4e5f6789a0b1d2e"},
+    "name": "Col. Rajesh Khanna (Retd.)",
+    "rank": "Colonel", 
+    "service_branch": "Army",
+    "specialization": "Leadership Development & Strategic Thinking",
+    "experience_years": 25,
+    "bio": "Distinguished retired Indian Army officer with over 25 years of exemplary service. Expert in leadership development, strategic thinking, and personality assessment. Successfully mentored over 2000 defence aspirants with 92% success rate. Specialized in OIR and psychology tests with innovative training methodologies.",
+    "profile_image": "/images/coaches/rajesh-khanna.jpg",
+    "rating": 4.8,
+    "total_reviews": 156,
+    "success_rate": "92%",
+    "location": "New Delhi",
+    "contact_email": "rajesh.khanna@ssbcoach1a.com",
+    "contact_phone": "+91-9876543220",
+    "is_featured": true,
+    "is_active": true,
+    "qualifications": [
+      "MSc in Defence Studies",
+      "PG Diploma in Psychology", 
+      "Certified Leadership Trainer"
+    ],
+    "achievements": [
+      "Vishisht Seva Medal",
+      "Sena Medal",
+      "Best Trainer Award 2023"
+    ],
+    "courses_taught": [
+      "Officer Intelligence Rating (OIR)",
+      "Psychology Tests (TAT, WAT, SRT)",
+      "Leadership & Personality Development",
+      "Personal Interview Techniques"
+    ],
+    "available_slots": {
+      "monday": ["09:00-12:00", "14:00-17:00"],
+      "tuesday": ["09:00-12:00", "14:00-17:00"],
+      "wednesday": ["09:00-12:00"],
+      "thursday": ["09:00-12:00", "14:00-17:00"],
+      "friday": ["09:00-12:00", "14:00-17:00"],
+      "saturday": ["09:00-12:00"],
+      "sunday": []
+    },
+    "pricing": {
+      "individual_session": 2500,
+      "group_session": 1500,
+      "monthly_package": 15000,
+      "intensive_course": 45000
+    },
+    "created_at": "2025-09-02T10:00:00.000Z",
+    "updated_at": "2025-09-02T16:00:00.000Z"
+  },
+  {
+    "_id": {"$oid": "65a1b2c3d4e5f6789a0b1d2f"},
+    "name": "Lt. Col. Meera Gupta (Retd.)",
+    "rank": "Lieutenant Colonel",
+    "service_branch": "Air Force",
+    "specialization": "Psychology & Personality Development",
+    "experience_years": 20,
+    "bio": "Brings 20 years of Indian Air Force experience specializing in psychology and personality development. Expert in psychological testing and assessment techniques. Conducted over 1500 mock interviews with excellent results. Known for personalized approach and innovative psychology training methods.",
+    "profile_image": "/images/coaches/meera-gupta.jpg", 
+    "rating": 4.9,
+    "total_reviews": 142,
+    "success_rate": "89%",
+    "location": "Mumbai", 
+    "contact_email": "meera.gupta@ssbcoach1a.com",
+    "contact_phone": "+91-9876543221",
+    "is_featured": true,
+    "is_active": true,
+    "qualifications": [
+      "MA in Psychology",
+      "PG Diploma in Counselling",
+      "Certified Clinical Psychologist"
+    ],
+    "achievements": [
+      "Vayu Sena Medal",
+      "Best Psychology Trainer 2022",
+      "Excellence in Training Award"
+    ],
+    "courses_taught": [
+      "Psychological Testing (TAT, WAT, SRT)",
+      "Personality Assessment & Development", 
+      "Self Description Techniques",
+      "Psychology Interview Preparation"
+    ],
+    "available_slots": {
+      "monday": ["10:00-13:00", "15:00-18:00"],
+      "tuesday": ["10:00-13:00"],
+      "wednesday": ["10:00-13:00", "15:00-18:00"],
+      "thursday": ["10:00-13:00", "15:00-18:00"],
+      "friday": ["10:00-13:00", "15:00-18:00"],
+      "saturday": ["10:00-13:00"],
+      "sunday": []
+    },
+    "pricing": {
+      "individual_session": 2800,
+      "group_session": 1800,
+      "monthly_package": 18000,
+      "intensive_course": 50000
+    },
+    "created_at": "2025-09-02T10:05:00.000Z",
+    "updated_at": "2025-09-02T16:05:00.000Z"
+  },
+  {
+    "_id": {"$oid": "65a1b2c3d4e5f6789a0b1d30"},
+    "name": "Commander Vikram Singh (Retd.)",
+    "rank": "Commander",
+    "service_branch": "Navy",
+    "specialization": "GTO Tasks & Team Leadership",
+    "experience_years": 22,
+    "bio": "Served the Indian Navy with distinction for 22 years. Unparalleled expertise in GTO tasks and team leadership activities. Designed innovative training modules for group planning exercises and outdoor leadership challenges. Expert in naval leadership principles and maritime strategy.",
+    "profile_image": "/images/coaches/vikram-singh.jpg",
+    "rating": 4.7,
+    "total_reviews": 128,
+    "success_rate": "87%",
+    "location": "Bangalore",
+    "contact_email": "vikram.singh@ssbcoach1a.com", 
+    "contact_phone": "+91-9876543222",
+    "is_featured": true,
+    "is_active": true,
+    "qualifications": [
+      "BTech in Naval Architecture",
+      "MBA in Leadership",
+      "Advanced Diploma in Maritime Studies"
+    ],
+    "achievements": [
+      "Nau Sena Medal",
+      "Commendation by CNS",
+      "Outstanding Trainer Award 2023"
+    ],
+    "courses_taught": [
+      "Group Testing Officer (GTO) Tasks",
+      "Group Planning Exercise (GPE)",
+      "Progressive Group Tasks (PGT)",
+      "Outdoor Leadership Training"
+    ],
+    "available_slots": {
+      "monday": ["08:00-11:00", "16:00-19:00"],
+      "tuesday": ["08:00-11:00", "16:00-19:00"],
+      "wednesday": ["08:00-11:00"],
+      "thursday": ["08:00-11:00", "16:00-19:00"],
+      "friday": ["08:00-11:00", "16:00-19:00"],
+      "saturday": ["08:00-11:00", "16:00-19:00"],
+      "sunday": ["08:00-11:00"]
+    },
+    "pricing": {
+      "individual_session": 2700,
+      "group_session": 1700,
+      "monthly_package": 16500,
+      "intensive_course": 48000
+    },
+    "created_at": "2025-09-02T10:10:00.000Z",
+    "updated_at": "2025-09-02T16:10:00.000Z"
+  },
+  {
+    "_id": {"$oid": "65a1b2c3d4e5f6789a0b1d31"},
+    "name": "Wing Commander Anita Malhotra (Retd.)",
+    "rank": "Wing Commander",
+    "service_branch": "Air Force",
+    "specialization": "Women Officers Training & Communication",
+    "experience_years": 18,
+    "bio": "Pioneer in women officers training and development. Expert in confidence building, communication skills, and interview techniques. Successfully mentored over 800 women officers with exceptional results. Specialized in gender-specific challenges and empowerment strategies for defence aspirants.",
+    "profile_image": "/images/coaches/anita-malhotra.jpg",
+    "rating": 4.9,
+    "total_reviews": 134,
+    "success_rate": "91%",
+    "location": "Pune",
+    "contact_email": "anita.malhotra@ssbcoach1a.com",
+    "contact_phone": "+91-9876543223",
+    "is_featured": true,
+    "is_active": true,
+    "qualifications": [
+      "MA in English Literature",
+      "Diploma in Public Speaking",
+      "Certified Gender Studies Expert"
+    ],
+    "achievements": [
+      "Vayu Sena Medal",
+      "Women Empowerment Award 2023",
+      "Best Mentor Award"
+    ],
+    "courses_taught": [
+      "Communication Skills & Public Speaking",
+      "Personal Interview Mastery",
+      "Confidence Building for Women",
+      "PPDT & Group Discussion Techniques"
+    ],
+    "available_slots": {
+      "monday": ["09:30-12:30", "14:30-17:30"],
+      "tuesday": ["09:30-12:30", "14:30-17:30"],
+      "wednesday": ["09:30-12:30"],
+      "thursday": ["09:30-12:30", "14:30-17:30"],
+      "friday": ["09:30-12:30", "14:30-17:30"],
+      "saturday": ["09:30-12:30"],
+      "sunday": []
+    },
+    "pricing": {
+      "individual_session": 3000,
+      "group_session": 2000,
+      "monthly_package": 20000,
+      "intensive_course": 55000
+    },
+    "created_at": "2025-09-02T10:15:00.000Z",
+    "updated_at": "2025-09-02T16:15:00.000Z"
+  }
+]

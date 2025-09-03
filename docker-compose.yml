@@ -1,0 +1,230 @@
+# SSB Coach 1A - Full Stack Application
+# Docker Compose Configuration for Development & Production
+# Architecture: Frontend (Node.js) + Backend (Python) + Database (MongoDB)
+
+version: '3.8'
+
+services:
+  # MongoDB Database
+  mongodb:
+    image: mongo:7.0
+    container_name: ssbcoach1a_mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USERNAME:-admin}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD:-admin123}
+      MONGO_INITDB_DATABASE: ${MONGO_DATABASE:-ssbcoach1a}
+    volumes:
+      - mongodb_data:/data/db
+      - ./database/init-scripts:/docker-entrypoint-initdb.d
+      - ./database/sample-data:/sample-data
+    networks:
+      - ssbcoach1a_network
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Redis Cache (Optional - for session storage and caching)
+  redis:
+    image: redis:7.2-alpine
+    container_name: ssbcoach1a_redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - ssbcoach1a_network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Backend API (Python + FastAPI)
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: ssbcoach1a_backend
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      # Database Configuration
+      MONGODB_URL: mongodb://${MONGO_ROOT_USERNAME:-admin}:${MONGO_ROOT_PASSWORD:-admin123}@mongodb:27017/${MONGO_DATABASE:-ssbcoach1a}?authSource=admin
+      REDIS_URL: redis://redis:6379
+      
+      # Application Configuration
+      ENVIRONMENT: ${ENVIRONMENT:-development}
+      DEBUG: ${DEBUG:-true}
+      SECRET_KEY: ${SECRET_KEY:-your-secret-key-change-in-production}
+      ACCESS_TOKEN_EXPIRE_MINUTES: ${ACCESS_TOKEN_EXPIRE_MINUTES:-30}
+      REFRESH_TOKEN_EXPIRE_DAYS: ${REFRESH_TOKEN_EXPIRE_DAYS:-7}
+      
+      # CORS Configuration
+      ALLOWED_ORIGINS: ${ALLOWED_ORIGINS:-http://localhost:3000,http://localhost:8080}
+      ALLOWED_HOSTS: ${ALLOWED_HOSTS:-localhost,127.0.0.1}
+      
+      # Features
+      INIT_SAMPLE_DATA: ${INIT_SAMPLE_DATA:-true}
+      ENABLE_AI_FEATURES: ${ENABLE_AI_FEATURES:-true}
+      ENABLE_ANALYTICS: ${ENABLE_ANALYTICS:-true}
+      ENABLE_GAMIFICATION: ${ENABLE_GAMIFICATION:-true}
+      
+      # Email Configuration (Optional)
+      SMTP_HOST: ${SMTP_HOST:-}
+      SMTP_PORT: ${SMTP_PORT:-587}
+      SMTP_USERNAME: ${SMTP_USERNAME:-}
+      SMTP_PASSWORD: ${SMTP_PASSWORD:-}
+      
+    volumes:
+      - ./backend:/app
+      - backend_uploads:/app/uploads
+      - backend_logs:/app/logs
+    depends_on:
+      mongodb:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - ssbcoach1a_network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Frontend Application (Node.js + Express)
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: ssbcoach1a_frontend
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      # Application Configuration
+      NODE_ENV: ${NODE_ENV:-development}
+      PORT: 3000
+      
+      # API Configuration
+      API_BASE_URL: http://backend:8000
+      
+      # Session Configuration
+      SESSION_SECRET: ${SESSION_SECRET:-your-session-secret-change-in-production}
+      
+      # Frontend URLs
+      FRONTEND_URL: ${FRONTEND_URL:-http://localhost:3000}
+      ALLOWED_ORIGINS: ${ALLOWED_ORIGINS:-http://localhost:3000,http://localhost:8000}
+      
+      # Features
+      ENABLE_SOCKET_IO: ${ENABLE_SOCKET_IO:-true}
+      ENABLE_PWA: ${ENABLE_PWA:-true}
+      
+    volumes:
+      - ./frontend:/app
+      - frontend_uploads:/app/public/uploads
+      - frontend_logs:/app/logs
+      - /app/node_modules  # Anonymous volume for node_modules
+    depends_on:
+      backend:
+        condition: service_healthy
+    networks:
+      - ssbcoach1a_network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Nginx Load Balancer (Production)
+  nginx:
+    image: nginx:1.25-alpine
+    container_name: ssbcoach1a_nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./deployment/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./deployment/ssl:/etc/nginx/ssl:ro
+      - frontend_uploads:/var/www/uploads:ro
+    depends_on:
+      - frontend
+      - backend
+    networks:
+      - ssbcoach1a_network
+    profiles:
+      - production
+    healthcheck:
+      test: ["CMD", "nginx", "-t"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # MongoDB Admin Interface (Development only)
+  mongo-express:
+    image: mongo-express:1.0
+    container_name: ssbcoach1a_mongo_express
+    restart: unless-stopped
+    ports:
+      - "8081:8081"
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: ${MONGO_ROOT_USERNAME:-admin}
+      ME_CONFIG_MONGODB_ADMINPASSWORD: ${MONGO_ROOT_PASSWORD:-admin123}
+      ME_CONFIG_MONGODB_URL: mongodb://${MONGO_ROOT_USERNAME:-admin}:${MONGO_ROOT_PASSWORD:-admin123}@mongodb:27017/
+      ME_CONFIG_BASICAUTH_USERNAME: ${MONGO_EXPRESS_USERNAME:-admin}
+      ME_CONFIG_BASICAUTH_PASSWORD: ${MONGO_EXPRESS_PASSWORD:-admin123}
+    depends_on:
+      - mongodb
+    networks:
+      - ssbcoach1a_network
+    profiles:
+      - development
+
+  # Redis Admin Interface (Development only)
+  redis-commander:
+    image: rediscommander/redis-commander:latest
+    container_name: ssbcoach1a_redis_commander
+    restart: unless-stopped
+    ports:
+      - "8082:8081"
+    environment:
+      REDIS_HOSTS: redis:redis:6379
+      HTTP_USER: ${REDIS_COMMANDER_USERNAME:-admin}
+      HTTP_PASSWORD: ${REDIS_COMMANDER_PASSWORD:-admin123}
+    depends_on:
+      - redis
+    networks:
+      - ssbcoach1a_network
+    profiles:
+      - development
+
+# Persistent volumes
+volumes:
+  mongodb_data:
+    driver: local
+  redis_data:
+    driver: local
+  backend_uploads:
+    driver: local
+  backend_logs:
+    driver: local
+  frontend_uploads:
+    driver: local
+  frontend_logs:
+    driver: local
+
+# Network configuration
+networks:
+  ssbcoach1a_network:
+    driver: bridge
