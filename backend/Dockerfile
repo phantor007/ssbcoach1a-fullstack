@@ -54,6 +54,9 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
   CMD curl -f http://localhost:8000/health || exit 1
 
 # Start application with gunicorn for production
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "1"]
+# CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "1"]
+
+# In your Dockerfile, replace your CMD with this
+CMD ["python3", "-m", "uvicorn", "your_module.your_app:app", "--host", "0.0.0.0", "--port", "8000"]
 
 
